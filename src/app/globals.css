@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Royal Blue & Black Theme */
+:root {
+  --color-primary: #001a4d; /* Royal Blue */
+  --color-secondary: #000000; /* Black */
+}
