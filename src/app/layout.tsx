@@ -1,28 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
+import DirectionSwitcher from "@/components/DirectionSwitcher";
 
 const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "ofrisites | משפרים את העסק שלך",
-  description: "פתרונות טכנולוגיות חכמות לעסקים קטנים בישראל - אתרים, אוטומציות, בוטים חכמים שמגבירים מכירות",
-  metadataBase: new URL("https://ofrisites.vercel.app"),
-  keywords: "עסקים קטנים, אתרים, אוטומציה, בוטים, טכנולוגיה",
+  title: "OKAI | סוכנות דיגיטל",
+  description: "אתרים, אוטומציות ועוזרי AI לעסקים קטנים בישראל. Websites, automations, and AI assistants for Israeli small businesses.",
+  metadataBase: new URL("https://ofrisites.com"),
+  keywords: "עסקים קטנים, אתרים, אוטומציה, AI, ישראל, OKAI, small business, website, automation",
   openGraph: {
-    title: "ofrisites | משפרים את העסק שלך",
-    description: "פתרונות טכנולוגיות חכמות לעסקים בישראל",
+    title: "OKAI | סוכנות דיגיטל",
+    description: "אתרים, אוטומציות ועוזרי AI לעסקים קטנים בישראל",
     locale: "he_IL",
     type: "website",
-    url: "https://ofrisites.vercel.app",
+    url: "https://ofrisites.com",
   },
 };
 
@@ -33,11 +30,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} antialiased bg-white text-[#1A1A1A]`}>
-        {/* Add padding-top to account for fixed navigation */}
-        <div className="pt-16 md:pt-20">
+      <body className={`${geist.variable} antialiased bg-[#0a0a0a] text-white`}>
+        <LanguageProvider>
+          <DirectionSwitcher />
           {children}
-        </div>
+        </LanguageProvider>
       </body>
     </html>
   );

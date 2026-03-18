@@ -1,47 +1,98 @@
-import ServiceCard from './ServiceCard';
+'use client';
 
-interface Service {
-  id: string;
-  icon: string;
-  title: string;
-  description: string;
-}
+import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
-interface ServiceGridProps {
-  services: Service[];
-}
+const services = [
+  {
+    key: 'websites',
+    icon: '🌐',
+    gradient: 'from-blue-500/20 to-blue-600/5',
+    borderHover: 'group-hover:border-blue-500/50',
+    iconBg: 'bg-blue-500/10 border-blue-500/20',
+  },
+  {
+    key: 'automations',
+    icon: '⚡',
+    gradient: 'from-violet-500/20 to-violet-600/5',
+    borderHover: 'group-hover:border-violet-500/50',
+    iconBg: 'bg-violet-500/10 border-violet-500/20',
+  },
+  {
+    key: 'ai',
+    icon: '🤖',
+    gradient: 'from-cyan-500/20 to-cyan-600/5',
+    borderHover: 'group-hover:border-cyan-500/50',
+    iconBg: 'bg-cyan-500/10 border-cyan-500/20',
+  },
+];
 
-export default function ServiceGrid({ services }: ServiceGridProps) {
+export default function ServiceGrid() {
+  const { t } = useLanguage();
+
   return (
-    <section className="py-16 md:py-32 bg-grey-100 relative">
-      {/* Subtle background accent */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#4A5FBF]/5 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#4A5FBF]/5 to-transparent rounded-full blur-3xl"></div>
+    <section className="py-24 px-4 sm:px-6 bg-[#0a0a0a] relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#020208] to-black" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-[#4A5FBF] font-semibold mb-3 uppercase tracking-widest text-sm md:text-base">השירותים שלנו</p>
-          <h2 className="text-heading-lg md:text-heading-hero primary-blue mb-4">
-            כל מה שהעסק שלך צריך
-          </h2>
-          <p className="text-grey-600 text-lg max-w-2xl mx-auto">
-            פתרונות טכנולוגיים מלאים שמעדכנים את העסק שלך לדיגיטל
-          </p>
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="section-tag">{t('services.title')}</span>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mt-4"
+          >
+            {t('services.subtitle')}
+          </motion.h2>
         </div>
-        
-        {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {services.map((service, idx) => (
-            <ServiceCard
-              key={service.id}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              delay={idx * 0.1}
-            />
+
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((service, i) => (
+            <motion.div
+              key={service.key}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group glass-card p-8 flex flex-col gap-5"
+            >
+              {/* Icon */}
+              <div className={`icon-badge ${service.iconBg} border w-14 h-14 text-2xl flex items-center justify-center rounded-2xl`}>
+                {service.icon}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-white">
+                {t(`services.${service.key}.title`)}
+              </h3>
+
+              {/* Description */}
+              <p className="text-white/60 text-sm leading-relaxed flex-1">
+                {t(`services.${service.key}.desc`)}
+              </p>
+
+              {/* Arrow indicator */}
+              <div className="flex items-center text-[#7080d4] text-sm font-semibold gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span>{t('nav.services')}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

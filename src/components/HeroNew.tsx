@@ -1,78 +1,137 @@
 'use client';
 
+import { useRef } from 'react';
 import Link from 'next/link';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
-interface HeroProps {
-  title?: string;
-  subtitle?: string;
-  ctaText?: string;
-  ctaLink?: string;
-}
+export default function HeroNew() {
+  const { t } = useLanguage();
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-export default function HeroNew({ 
-  title = 'משפרים את העסק שלך',
-  subtitle = 'פתרונות טכנולוגיות חכמות שמעלות מכירות ומחסכות זמן',
-  ctaText = 'בואו נתחיל',
-  ctaLink = '#contact'
-}: HeroProps) {
+  const handleContactClick = () => {
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative bg-gradient-to-br from-[#4A5FBF] via-[#5A6FCD] to-[#2D3A7A] text-white pt-32 pb-20 md:pt-40 md:pb-32 min-h-screen flex flex-col justify-center items-center overflow-hidden">
-      {/* Decorative background elements - subtle and professional */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 bg-white/[0.08] rounded-full -top-48 -right-48 blur-3xl animate-float"></div>
-        <div className="absolute w-72 h-72 bg-white/[0.06] rounded-full -bottom-32 -left-32 blur-3xl animate-float" style={{ animationDirection: 'reverse', animationDelay: '0s' }}></div>
-        <div className="absolute w-96 h-96 bg-white/[0.05] rounded-full top-1/2 left-1/3 blur-3xl animate-float" style={{ animationDelay: '1s', animationDirection: 'reverse' }}></div>
+    <section
+      ref={ref}
+      className="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Animated background orbs */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <div
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-20"
+          style={{
+            background: 'radial-gradient(circle, #4A5FBF 0%, transparent 70%)',
+            animation: 'orbFloat1 12s ease-in-out infinite',
+          }}
+        />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-15"
+          style={{
+            background: 'radial-gradient(circle, #7080d4 0%, transparent 70%)',
+            animation: 'orbFloat2 15s ease-in-out infinite',
+          }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full opacity-10"
+          style={{
+            background: 'radial-gradient(circle, #3449a8 0%, transparent 70%)',
+            animation: 'orbFloat3 10s ease-in-out infinite',
+          }}
+        />
+        {/* Subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(74,95,191,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(74,95,191,0.8) 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
+          }}
+        />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-6 text-center animate-fade-in-up">
-        {/* Subheading badge */}
-        <div className="inline-block mb-6 md:mb-8 px-4 py-2 rounded-full bg-white/15 backdrop-blur-sm border border-white/20">
-          <span className="text-sm md:text-base font-medium text-white/90">✨ פתרונות טכנולוגיה ישראליים</span>
-        </div>
+      <motion.div
+        style={{ y, opacity }}
+        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center"
+      >
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex justify-center mb-6"
+        >
+          <span className="section-tag">{t('hero.badge')}</span>
+        </motion.div>
 
-        {/* Main heading */}
-        <h1 className="text-heading-hero text-white leading-tight mb-6 md:mb-8 font-black">
-          {title}
-        </h1>
+        {/* Main headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.05]"
+        >
+          <span className="gradient-text">{t('hero.headline')}</span>
+        </motion.h1>
 
-        {/* Subtitle */}
-        <p className="text-lg md:text-2xl mb-10 md:mb-14 text-white/95 leading-relaxed max-w-2xl mx-auto font-light">
-          {subtitle}
-        </p>
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+          className="text-lg sm:text-xl text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
+          {t('hero.subtitle')}
+        </motion.p>
 
-        {/* CTA Button - strong and prominent */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <button
+            onClick={handleContactClick}
+            className="btn-glow text-base px-8 py-4 rounded-xl font-bold"
+          >
+            {t('hero.cta')}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
           <Link
-            href={ctaLink}
-            className="inline-block bg-white text-[#4A5FBF] px-8 md:px-10 py-4 md:py-5 rounded-xl font-bold text-lg md:text-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer active:translate-y-0 whitespace-nowrap"
+            href="/bundles"
+            className="btn-outline text-base px-8 py-4 rounded-xl font-semibold"
           >
-            {ctaText} →
+            {t('nav.services')}
           </Link>
-          <a 
-            href="#about"
-            className="inline-block text-white px-8 md:px-10 py-4 md:py-5 rounded-xl font-bold text-lg md:text-xl border-2 border-white/40 transition-all duration-300 hover:border-white hover:bg-white/10"
-          >
-            עוד מידע
-          </a>
-        </div>
+        </motion.div>
+      </motion.div>
 
-        {/* Trust indicator */}
-        <div className="mt-12 md:mt-16 flex justify-center gap-6 md:gap-12 flex-wrap">
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold">50+</div>
-            <div className="text-sm text-white/80">עסקים מרוצים</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold">99.9%</div>
-            <div className="text-sm text-white/80">זמן פעילות</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold">24/7</div>
-            <div className="text-sm text-white/80">תמיכה</div>
-          </div>
-        </div>
-      </div>
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1"
+        >
+          <div className="w-1 h-2 bg-white/40 rounded-full" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
