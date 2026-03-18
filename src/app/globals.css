@@ -1,17 +1,127 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --primary-blue: #4A5FBF;
+  --dark-grey: #2C3E50;
+  --light-grey: #F5F7FA;
+  --text-dark: #1A1A1A;
+  --text-light: #FFFFFF;
+  --accent-blue: #6B7FDF;
+  --success: #27AE60;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background: var(--text-light);
+  direction: rtl;
 }
 
-/* Royal Blue & Black Theme */
-:root {
-  --color-primary: #001a4d; /* Royal Blue */
-  --color-secondary: #000000; /* Black */
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Color utilities */
+.primary-blue { 
+  color: var(--primary-blue);
+}
+
+.dark-grey { 
+  color: var(--dark-grey);
+}
+
+.light-grey { 
+  color: var(--light-grey);
+}
+
+.accent-blue { 
+  color: var(--accent-blue);
+}
+
+.bg-primary-blue {
+  background-color: var(--primary-blue);
+}
+
+.bg-dark-grey {
+  background-color: var(--dark-grey);
+}
+
+.bg-light-grey {
+  background-color: var(--light-grey);
+}
+
+.bg-accent-blue {
+  background-color: var(--accent-blue);
+}
+
+/* Text smoothing */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
