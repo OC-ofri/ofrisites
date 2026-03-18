@@ -102,7 +102,7 @@ const FAQ_ITEMS = [
 
 export const metadata = {
   title: 'Deals & Pricing | ofrisites',
-  description: 'עיין בחבילות המחיר שלנו ובחר את הפתרון המתאים לעסק שלך',
+  description: 'עיין בחבילות המחיר שלנו ובחר את הפתרון המתאים לעסק שלך - Starter, Growth, Enterprise ו-Custom',
 };
 
 export default function DealsPage() {
@@ -111,8 +111,8 @@ export default function DealsPage() {
       <Navigation />
       <HeroNew
         title="Deals & Pricing"
-        subtitle="בחר את החבילה המתאימה לעסק שלך"
-        ctaText="בואו נתחיל"
+        subtitle="חבילות מעוצבות לכל גודל עסק - מהתחלה ועד ענק"
+        ctaText="בואו נדברנו"
         ctaLink="#deals"
       />
       <DealsGrid deals={DEALS} />

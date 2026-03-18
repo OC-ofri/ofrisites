@@ -14,13 +14,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "ofrisites | משפרים את העסק שלך",
-  description: "פתרונות טכנולוגיות לעסקים קטנים בישראל - אתרים, אוטומציות, בוטים חכמים",
+  description: "פתרונות טכנולוגיות חכמות לעסקים קטנים בישראל - אתרים, אוטומציות, בוטים חכמים שמגבירים מכירות",
   metadataBase: new URL("https://ofrisites.vercel.app"),
+  keywords: "עסקים קטנים, אתרים, אוטומציה, בוטים, טכנולוגיה",
   openGraph: {
     title: "ofrisites | משפרים את העסק שלך",
-    description: "פתרונות טכנולוגיות לעסקים קטנים בישראל",
+    description: "פתרונות טכנולוגיות חכמות לעסקים בישראל",
     locale: "he_IL",
     type: "website",
+    url: "https://ofrisites.vercel.app",
   },
 };
 
@@ -31,8 +33,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} antialiased bg-white`}>
-        {children}
+      <body className={`${geist.variable} ${geistMono.variable} antialiased bg-white text-[#1A1A1A]`}>
+        {/* Add padding-top to account for fixed navigation */}
+        <div className="pt-16 md:pt-20">
+          {children}
+        </div>
       </body>
     </html>
   );
