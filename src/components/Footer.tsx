@@ -44,7 +44,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-white/20 text-xs text-center md:text-start">
-            &copy; {year} OKAI. {t('footer.copyright')}
+            &copy; {year} OKAI. {t('footer.rights')}
           </p>
         </div>
       </div>

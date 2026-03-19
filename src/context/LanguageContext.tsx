@@ -19,17 +19,17 @@ const heTranslations: Translations = {
   'hero.subtitle': 'אנחנו בונים אתרים, אוטומציות ועוזרי AI שחוסכים זמן, מגבירים מכירות ומציבים אתכם קדימה מהמתחרים',
   'hero.cta': 'בואו נדבר',
 
-  // Services
+  // Services section
   'services.badge': 'שלושה שירותים',
   'services.title': 'מה אנחנו עושים',
   'services.subtitle': 'שלושה שירותים שבונים לך יתרון תחרותי אמיתי',
   'services.learnMore': 'קרא עוד',
   'services.websites.title': 'אתרים',
-  'services.websites.desc': 'אתרים מהירים, יפים ומותאמים לנייד שממירים מבקרים ללקוחות.',
+  'services.websites.desc': 'אתה חייב להיות נוכח באינטרנט — ככה כל מחפש מוצא אותך. אתר מותאם בדיוק לך עושה את זה בצורה מושלמת.',
   'services.automations.title': 'אוטומציות',
-  'services.automations.desc': 'חיסכון בשעות עבודה יומיות עם אוטומציות חכמות לתזמון, מעקב לידים ועוד.',
+  'services.automations.desc': 'תפסיקו לעשות את אותו דבר פעמיים. אוטומציות מטפלות בעבודה החוזרת שלך כדי שתוכל להתמקד במה שבאמת מגדיל את העסק.',
   'services.ai.title': 'עוזרי AI',
-  'services.ai.desc': 'בוטים חכמים שעונים ללקוחות 24/7, מנהלים פניות ומגדילים שביעות רצון.',
+  'services.ai.desc': 'כמו לשכור עובד 24/7 שלא ישן אף פעם, לא מתלונן אף פעם, ומטפל בלקוחות שלך מיידית.',
 
   // Contact
   'contact.title': 'מוכנים להתחיל?',
@@ -57,6 +57,7 @@ const heTranslations: Translations = {
   // Websites Basic
   'websites.basic.price': '1,500',
   'websites.basic.desc': 'דף נחיתה מקצועי, עמוד אחד, מותאם לנייד',
+  'websites.basic.blurb': 'מושלם לעסקים שצריכים קיום דיגיטלי מהיר. לקוחות מחפשים — זה מוודא שהם מוצאים אתכם ולא את המתחרים.',
   'websites.basic.f1': 'עמוד נחיתה אחד',
   'websites.basic.f2': 'עיצוב מותאם לנייד',
   'websites.basic.f3': 'כפתור WhatsApp',
@@ -65,6 +66,7 @@ const heTranslations: Translations = {
   // Websites Standard
   'websites.standard.price': '3,500',
   'websites.standard.desc': 'אתר רב-עמודי עם טופס יצירת קשר ו-SEO בסיסי',
+  'websites.standard.blurb': 'יותר מכרטיס ביקור, פחות מאתר מלא. תיראו רציניים, תיאספו לידים ותופיעו בגוגל — הכל בפתרון אחד.',
   'websites.standard.f1': 'עד 5 עמודים',
   'websites.standard.f2': 'טופס יצירת קשר',
   'websites.standard.f3': 'SEO בסיסי',
@@ -74,6 +76,7 @@ const heTranslations: Translations = {
   // Websites Premium
   'websites.premium.price': '7,000',
   'websites.premium.desc': 'אתר מלא עם אנימציות, עיצוב מותאם ו-CMS',
+  'websites.premium.blurb': 'החנות הדיגיטלית המלאה שלכם. בנויה לצמוח עם העסק, לרשום על לקוחות ולדרג בחיפוש — לטווח ארוך.',
   'websites.premium.f1': 'אתר מלא ללא הגבלת עמודים',
   'websites.premium.f2': 'אנימציות ועיצוב מותאם',
   'websites.premium.f3': 'מערכת ניהול תוכן (CMS)',
@@ -83,6 +86,7 @@ const heTranslations: Translations = {
   // Automations Basic
   'automations.basic.price': '800',
   'automations.basic.desc': 'אוטומציה פשוטה מבוססת טריגר',
+  'automations.basic.blurb': 'הגדירו פעם אחת ויעבוד לנצח. עוצר משימה חוזרת אחת שאוכלת לכם זמן כל יום.',
   'automations.basic.f1': 'זרימה אחת פשוטה',
   'automations.basic.f2': 'אינטגרציה לאימייל או WhatsApp',
   'automations.basic.f3': 'הגדרה ובדיקה',
@@ -90,6 +94,7 @@ const heTranslations: Translations = {
   // Automations Standard
   'automations.standard.price': '2,500',
   'automations.standard.desc': 'זרימה רב-שלבית עם אינטגרציות ולוגיקה',
+  'automations.standard.blurb': 'חברו את הכלים שלכם, צמצמו ניהול. שלוש זרימות שרצות בזמן שאתם ישנים.',
   'automations.standard.f1': 'עד 3 זרימות אוטומציה',
   'automations.standard.f2': 'אינטגרציות מרובות',
   'automations.standard.f3': 'לוגיקה מותנית',
@@ -98,6 +103,7 @@ const heTranslations: Translations = {
   // Automations Premium
   'automations.premium.price': '6,000',
   'automations.premium.desc': 'אוטומציה מורכבת עם אינטגרציות API ותחזוקה',
+  'automations.premium.blurb': 'העסק שלכם על טייס אוטומטי. תהליכים מורכבים, חיבורי API ומישהו שמתחזק הכל בשבילכם.',
   'automations.premium.f1': 'זרימות ללא הגבלה',
   'automations.premium.f2': 'אינטגרציות API מותאמות',
   'automations.premium.f3': 'לוגיקה מתקדמת ו-AI',
@@ -107,6 +113,7 @@ const heTranslations: Translations = {
   // AI Basic
   'ai.basic.price': '1,200',
   'ai.basic.desc': "צ'אטבוט פשוט מבוסס שאלות ותשובות",
+  'ai.basic.blurb': 'עונה על שאלות נפוצות מיידית, 24/7. לא עוד זמן שמתבזבז על אותן תשובות חוזרות בוואטסאפ.',
   'ai.basic.f1': 'בוט שאלות ותשובות',
   'ai.basic.f2': 'עד 50 שאלות מוגדרות',
   'ai.basic.f3': 'אינטגרציה לאתר',
@@ -114,6 +121,7 @@ const heTranslations: Translations = {
   // AI Standard
   'ai.standard.price': '3,000',
   'ai.standard.desc': 'עוזר מאומן עם פרסונה מותאמת ואינטגרציות',
+  'ai.standard.blurb': 'AI שמכיר את העסק שלכם ומדבר בשמכם. מטפל בלקוחות בוואטסאפ ובאתר — גם בשעה שתיים בלילה.',
   'ai.standard.f1': 'אימון על נתוני העסק',
   'ai.standard.f2': 'פרסונה ואישיות מותאמות',
   'ai.standard.f3': 'אינטגרציה ל-WhatsApp/אתר',
@@ -122,6 +130,7 @@ const heTranslations: Translations = {
   // AI Premium
   'ai.premium.price': '8,000',
   'ai.premium.desc': 'סוכן AI מלא, רב-ערוצי עם אימון מתמשך',
+  'ai.premium.blurb': 'חבר צוות AI מלא — רב-ערוצי, לומד כל הזמן ומדווח לכם מה הלקוחות באמת צריכים.',
   'ai.premium.f1': 'סוכן AI מלא',
   'ai.premium.f2': 'רב-ערוצי (WhatsApp, אימייל, אתר)',
   'ai.premium.f3': 'אימון ועדכון שוטף',
@@ -131,6 +140,13 @@ const heTranslations: Translations = {
   // Footer
   'footer.rights': 'כל הזכויות שמורות',
   'footer.tagline': 'מביאים את הטכנולוגיה לעסק שלך',
+
+  // Thank you page
+  'thankyou.badge': 'תודה רבה',
+  'thankyou.title': 'קיבלנו את הבקשה שלכם!',
+  'thankyou.subtitle': 'ניצור אתכם קשר בתוך 24 שעות. בינתיים, מוזמנים לכתוב לנו ישירות בוואטסאפ.',
+  'thankyou.whatsapp': 'כתבו לנו בוואטסאפ',
+  'thankyou.home': 'חזרה לדף הבית',
 };
 
 const enTranslations: Translations = {
@@ -146,17 +162,17 @@ const enTranslations: Translations = {
   'hero.subtitle': 'We build websites, automations, and AI assistants that save time, boost sales, and put you ahead of the competition',
   'hero.cta': "Let's Talk",
 
-  // Services
+  // Services section
   'services.badge': 'Three Services',
   'services.title': 'What We Do',
   'services.subtitle': 'Three services that build you a real competitive advantage',
   'services.learnMore': 'Learn More',
   'services.websites.title': 'Websites',
-  'services.websites.desc': 'Fast, beautiful, mobile-first websites that convert visitors into customers.',
+  'services.websites.desc': 'You have to be present online — that way every searcher finds you. A website tailored exactly to you does that perfectly.',
   'services.automations.title': 'Automations',
-  'services.automations.desc': 'Save hours of daily work with smart automations for scheduling, lead tracking, and more.',
+  'services.automations.desc': 'Stop doing the same thing twice. Automations handle your repetitive work so you can focus on what actually grows your business.',
   'services.ai.title': 'AI Assistants',
-  'services.ai.desc': 'Smart bots that answer customers 24/7, handle inquiries, and increase satisfaction.',
+  'services.ai.desc': 'Like hiring a 24/7 employee who never sleeps, never complains, and handles your clients instantly.',
 
   // Contact
   'contact.title': 'Ready to Start?',
@@ -184,6 +200,7 @@ const enTranslations: Translations = {
   // Websites Basic
   'websites.basic.price': '400',
   'websites.basic.desc': 'Professional landing page, single page, mobile-friendly',
+  'websites.basic.blurb': 'Perfect for getting found online fast. Customers search — this makes sure they find you, not your competitor.',
   'websites.basic.f1': 'Single landing page',
   'websites.basic.f2': 'Mobile-responsive design',
   'websites.basic.f3': 'WhatsApp button',
@@ -192,6 +209,7 @@ const enTranslations: Translations = {
   // Websites Standard
   'websites.standard.price': '950',
   'websites.standard.desc': 'Multi-page site with contact form and basic SEO',
+  'websites.standard.blurb': 'More than a card, less than a full site. Look legit, collect leads, and show up on Google — all in one.',
   'websites.standard.f1': 'Up to 5 pages',
   'websites.standard.f2': 'Contact form',
   'websites.standard.f3': 'Basic SEO',
@@ -201,6 +219,7 @@ const enTranslations: Translations = {
   // Websites Premium
   'websites.premium.price': '1,900',
   'websites.premium.desc': 'Full site with animations, custom design and CMS',
+  'websites.premium.blurb': 'Your full digital storefront. Built to grow with your business, impress clients, and rank on search — long term.',
   'websites.premium.f1': 'Unlimited pages',
   'websites.premium.f2': 'Animations & custom design',
   'websites.premium.f3': 'Content Management System',
@@ -210,6 +229,7 @@ const enTranslations: Translations = {
   // Automations Basic
   'automations.basic.price': '220',
   'automations.basic.desc': 'Simple trigger-based automation (email/WhatsApp)',
+  'automations.basic.blurb': 'Set it once, runs forever. Stops one repetitive task eating your time every single day.',
   'automations.basic.f1': 'One simple flow',
   'automations.basic.f2': 'Email or WhatsApp integration',
   'automations.basic.f3': 'Setup & testing',
@@ -217,6 +237,7 @@ const enTranslations: Translations = {
   // Automations Standard
   'automations.standard.price': '680',
   'automations.standard.desc': 'Multi-step flow with integrations and logic',
+  'automations.standard.blurb': 'Connect your tools, cut your admin. Three flows that run while you sleep.',
   'automations.standard.f1': 'Up to 3 automation flows',
   'automations.standard.f2': 'Multiple integrations',
   'automations.standard.f3': 'Conditional logic',
@@ -225,6 +246,7 @@ const enTranslations: Translations = {
   // Automations Premium
   'automations.premium.price': '1,600',
   'automations.premium.desc': 'Complex automation with API integrations and maintenance',
+  'automations.premium.blurb': 'Your business on autopilot. Complex workflows, API connections, and someone who maintains it all.',
   'automations.premium.f1': 'Unlimited flows',
   'automations.premium.f2': 'Custom API integrations',
   'automations.premium.f3': 'Advanced logic & AI',
@@ -234,6 +256,7 @@ const enTranslations: Translations = {
   // AI Basic
   'ai.basic.price': '330',
   'ai.basic.desc': 'Simple chatbot, FAQ-based',
+  'ai.basic.blurb': 'Answers common questions instantly, 24/7. No more time spent on the same WhatsApp replies.',
   'ai.basic.f1': 'FAQ chatbot',
   'ai.basic.f2': 'Up to 50 defined questions',
   'ai.basic.f3': 'Website integration',
@@ -241,6 +264,7 @@ const enTranslations: Translations = {
   // AI Standard
   'ai.standard.price': '820',
   'ai.standard.desc': 'Trained assistant with custom persona and integrations',
+  'ai.standard.blurb': 'An AI that knows your business and talks like you. Handles clients on WhatsApp and your site — even at 2am.',
   'ai.standard.f1': 'Trained on business data',
   'ai.standard.f2': 'Custom persona & personality',
   'ai.standard.f3': 'WhatsApp / website integration',
@@ -249,6 +273,7 @@ const enTranslations: Translations = {
   // AI Premium
   'ai.premium.price': '2,200',
   'ai.premium.desc': 'Full AI agent, multi-channel with ongoing training',
+  'ai.premium.blurb': 'A full AI team member — multi-channel, self-improving, and reporting back on what your customers actually need.',
   'ai.premium.f1': 'Full AI agent',
   'ai.premium.f2': 'Multi-channel (WhatsApp, email, site)',
   'ai.premium.f3': 'Ongoing training & updates',
@@ -258,6 +283,13 @@ const enTranslations: Translations = {
   // Footer
   'footer.rights': 'All rights reserved',
   'footer.tagline': 'Bringing technology to your business',
+
+  // Thank you page
+  'thankyou.badge': 'Thank You',
+  'thankyou.title': "We've received your request!",
+  'thankyou.subtitle': "We'll be in touch within 24 hours. In the meantime, feel free to reach us directly on WhatsApp.",
+  'thankyou.whatsapp': 'Message us on WhatsApp',
+  'thankyou.home': 'Back to Home',
 };
 
 interface LanguageContextValue {

@@ -24,6 +24,25 @@ const CATEGORY_ICONS: Record<CategoryKey, string> = {
   ai: '🤖',
 };
 
+// Swap these placeholder URLs for real Stripe Payment Links when ready
+const STRIPE_LINKS: Record<CategoryKey, Record<TierKey, string>> = {
+  websites: {
+    basic:    'https://buy.stripe.com/PLACEHOLDER_WEBSITES_BASIC',
+    standard: 'https://buy.stripe.com/PLACEHOLDER_WEBSITES_STANDARD',
+    premium:  'https://buy.stripe.com/PLACEHOLDER_WEBSITES_PREMIUM',
+  },
+  automations: {
+    basic:    'https://buy.stripe.com/PLACEHOLDER_AUTOMATIONS_BASIC',
+    standard: 'https://buy.stripe.com/PLACEHOLDER_AUTOMATIONS_STANDARD',
+    premium:  'https://buy.stripe.com/PLACEHOLDER_AUTOMATIONS_PREMIUM',
+  },
+  ai: {
+    basic:    'https://buy.stripe.com/PLACEHOLDER_AI_BASIC',
+    standard: 'https://buy.stripe.com/PLACEHOLDER_AI_STANDARD',
+    premium:  'https://buy.stripe.com/PLACEHOLDER_AI_PREMIUM',
+  },
+};
+
 function PricingCard({
   category,
   tier,
@@ -38,13 +57,14 @@ function PricingCard({
   const { t } = useLanguage();
   const isPopular = tier === 'standard';
   const featureCount = FEATURE_COUNTS[category][tier];
+  const stripeLink = STRIPE_LINKS[category][tier];
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
       className={`relative rounded-2xl p-7 flex flex-col gap-5 ${
         isPopular ? 'pricing-featured' : 'glass-card'
       }`}
@@ -55,7 +75,7 @@ function PricingCard({
         </div>
       )}
 
-      {/* Tier name */}
+      {/* Tier name + short desc */}
       <div>
         <h3 className="text-lg font-bold text-white mb-1">{t(`tier.${tier}`)}</h3>
         <p className="text-white/50 text-sm leading-relaxed">{t(`${category}.${tier}.desc`)}</p>
@@ -86,12 +106,19 @@ function PricingCard({
         ))}
       </ul>
 
-      {/* CTA */}
+      {/* Business value blurb */}
+      <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-4 py-3">
+        <p className="text-white/50 text-xs leading-relaxed italic">
+          {t(`${category}.${tier}.blurb`)}
+        </p>
+      </div>
+
+      {/* CTA → Stripe Payment Link */}
       <a
-        href="https://wa.me/972522424677"
+        href={stripeLink}
         target="_blank"
         rel="noopener noreferrer"
-        className={isPopular ? 'btn-glow' : 'btn-outline'}
+        className={isPopular ? 'btn-glow text-center' : 'btn-outline text-center'}
       >
         {t('bundles.cta')}
       </a>
