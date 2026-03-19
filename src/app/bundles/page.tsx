@@ -43,27 +43,54 @@ const STRIPE_LINKS: Record<CategoryKey, Record<TierKey, string>> = {
   },
 };
 
+// Approximate NIS→USD conversion rate (update as needed)
+const NIS_TO_USD = 0.27;
+
+function parsePrice(raw: string): number {
+  return parseInt(raw.replace(/,/g, ''), 10);
+}
+
 function PricingCard({
   category,
   tier,
   index,
-  currency,
 }: {
   category: CategoryKey;
   tier: TierKey;
   index: number;
-  currency: string;
 }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const isPopular = tier === 'standard';
   const featureCount = FEATURE_COUNTS[category][tier];
   const stripeLink = STRIPE_LINKS[category][tier];
+
+  // Always derive both prices
+  const nisRaw = language === 'he' ? t(`${category}.${tier}.price`) : null;
+  const usdRaw = language === 'en' ? t(`${category}.${tier}.price`) : null;
+
+  // Primary display uses translation key directly; secondary is converted
+  const primarySymbol = language === 'he' ? '₪' : '$';
+  const primaryPrice = t(`${category}.${tier}.price`);
+
+  // Derive secondary price
+  let secondaryLabel = '';
+  if (language === 'he') {
+    const nis = parsePrice(primaryPrice);
+    const usd = Math.round(nis * NIS_TO_USD);
+    secondaryLabel = `≈ $${usd.toLocaleString('en')}`;
+  } else {
+    const usd = parsePrice(primaryPrice);
+    const nis = Math.round(usd / NIS_TO_USD);
+    secondaryLabel = `≈ ₪${nis.toLocaleString('en')}`;
+  }
+
+  void nisRaw; void usdRaw;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0 }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className={`relative rounded-2xl p-7 flex flex-col gap-5 ${
         isPopular ? 'pricing-featured' : 'glass-card'
@@ -84,10 +111,13 @@ function PricingCard({
       {/* Price */}
       <div>
         <div className="flex items-baseline gap-1">
-          <span className="text-white/60 text-lg font-semibold">{currency}</span>
-          <span className="text-4xl font-black text-white">{t(`${category}.${tier}.price`)}</span>
+          <span className="text-white/60 text-lg font-semibold">{primarySymbol}</span>
+          <span className="text-4xl font-black text-white">{primaryPrice}</span>
         </div>
-        <p className="text-white/35 text-xs mt-0.5">{t('tier.period')}</p>
+        <div className="flex items-center gap-2 mt-0.5">
+          <p className="text-white/35 text-xs">{t('tier.period')}</p>
+          <span className="text-white/25 text-xs">{secondaryLabel}</span>
+        </div>
       </div>
 
       {/* Features */}
@@ -127,8 +157,7 @@ function PricingCard({
 }
 
 export default function BundlesPage() {
-  const { t, language } = useLanguage();
-  const currency = language === 'he' ? '₪' : '$';
+  const { t } = useLanguage();
 
   return (
     <main className="bg-[#0a0a0a] min-h-screen">
@@ -178,7 +207,7 @@ export default function BundlesPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.5 }}
                 className="flex items-center gap-3 mb-10"
               >
@@ -199,7 +228,6 @@ export default function BundlesPage() {
                     category={category}
                     tier={tier}
                     index={catIndex * 3 + tierIndex}
-                    currency={currency}
                   />
                 ))}
               </div>

@@ -19,7 +19,7 @@ export function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5 }}
         >
           <span className="section-tag">{t('contact.title')}</span>
@@ -28,7 +28,7 @@ export function Contact() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mt-4 mb-4"
         >
@@ -38,7 +38,7 @@ export function Contact() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
           className="text-white/60 text-lg mb-10"
         >
@@ -49,7 +49,7 @@ export function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >

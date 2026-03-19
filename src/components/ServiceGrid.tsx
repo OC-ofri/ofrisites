@@ -28,7 +28,7 @@ const services = [
 ];
 
 export default function ServiceGrid() {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
 
   return (
     <section className="py-24 px-4 sm:px-6 bg-[#0a0a0a] relative overflow-hidden">
@@ -43,7 +43,7 @@ export default function ServiceGrid() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.5 }}
           >
             <span className="section-tag">{t('services.title')}</span>
@@ -51,7 +51,7 @@ export default function ServiceGrid() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mt-4"
           >
@@ -66,7 +66,7 @@ export default function ServiceGrid() {
               key={service.key}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group glass-card p-8 flex flex-col gap-5"
             >
@@ -88,7 +88,10 @@ export default function ServiceGrid() {
               {/* Arrow indicator */}
               <div className="flex items-center text-[#7080d4] text-sm font-semibold gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span>{t('nav.services')}</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                  style={{ transform: isRTL ? 'scaleX(-1)' : undefined }}
+                >
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </div>
