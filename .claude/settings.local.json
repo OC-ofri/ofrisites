@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(cp -r \"g:/My Drive/ofrisites\" \"C:/Users/pc/ofrisites\" --exclude=\"node_modules\")",
+      "Bash(robocopy \"G:/My Drive/ofrisites\" \"C:/Users/pc/ofrisites\" /E /XD node_modules /NFL /NDL /NJH /NJS)",
+      "Bash(cmd /c \"robocopy \\\\\"G:\\\\My Drive\\\\ofrisites\\\\\" \\\\\"C:\\\\Users\\\\pc\\\\ofrisites\\\\\" /E /XD node_modules /NFL /NDL /NJH /NJS\")",
+      "Bash(cmd /c \"xcopy \\\\\"G:\\\\My Drive\\\\ofrisites\\\\\" \\\\\"C:\\\\Users\\\\pc\\\\ofrisites\\\\\" /E /I /Q /EXCLUDE:node_modules\")",
+      "Bash(powershell -Command \"Copy-Item -Path 'G:\\\\My Drive\\\\ofrisites' -Destination 'C:\\\\Users\\\\pc\\\\ofrisites' -Recurse -Exclude 'node_modules'\")",
+      "Bash(powershell -Command ':*)",
+      "Bash(npx tsc:*)",
+      "Bash(cmd /c \"cd C:\\\\Users\\\\pc\\\\ofrisites && npx tsc --noEmit 2>&1\")"
+    ]
+  }
+}
