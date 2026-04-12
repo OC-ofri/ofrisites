@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://ofrisites.com",
   },
+  other: {
+    "facebook-domain-verification": "6bx71av10potoaz9dyjf9gfxtuj8me",
+  },
 };
 
 export default function RootLayout({
@@ -29,11 +32,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="he" dir="rtl" suppressHydrationWarning>
+    <html lang="he" dir="rtl" suppressHydrationWarning className="bg-[#0a0a0a]">
       <body className={`${geist.variable} antialiased bg-[#0a0a0a] text-white`}>
         <LanguageProvider>
           <DirectionSwitcher />
-          {children}
+          <div className="w-full max-w-[1920px] mx-auto overflow-hidden">
+            {children}
+          </div>
         </LanguageProvider>
       </body>
     </html>

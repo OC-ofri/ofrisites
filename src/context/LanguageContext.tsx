@@ -302,7 +302,7 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('he');
+  const [language, setLanguage] = useState<Language>('en');
 
   const toggleLanguage = useCallback(() => {
     setLanguage((prev) => (prev === 'he' ? 'en' : 'he'));

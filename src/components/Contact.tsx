@@ -7,14 +7,14 @@ export function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 bg-[#0a0a0a] relative overflow-hidden">
+    <section id="contact" className="py-24 lg:py-32 px-5 sm:px-8 bg-[#0a0a0a] relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-10"
           style={{ background: 'radial-gradient(ellipse, #4A5FBF 0%, transparent 70%)' }} />
       </div>
 
-      <div className="max-w-2xl mx-auto relative z-10 text-center">
+      <div className="max-w-2xl lg:max-w-3xl mx-auto relative z-10 text-center">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mt-4 mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mt-4 mb-4"
         >
           {t('contact.title')}
         </motion.h2>
@@ -40,7 +40,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-white/60 text-lg mb-10"
+          className="text-white/60 text-lg lg:text-xl mb-10 lg:mb-12"
         >
           {t('contact.subtitle')}
         </motion.p>
@@ -51,7 +51,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 lg:gap-5 justify-center items-center"
         >
           <a
             href="mailto:ofriko.business@gmail.com"

@@ -57,14 +57,14 @@ export default function HeroNew() {
 
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center"
+        className="relative z-10 max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center"
       >
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex justify-center mb-6"
+          className="flex justify-center mb-6 lg:mb-8"
         >
           <span className="section-tag">{t('hero.badge')}</span>
         </motion.div>
@@ -74,7 +74,7 @@ export default function HeroNew() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.05]"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight mb-6 lg:mb-8 leading-[1.05]"
         >
           <span className="gradient-text">{t('hero.headline')}</span>
         </motion.h1>
@@ -84,7 +84,7 @@ export default function HeroNew() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="text-lg sm:text-xl text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg sm:text-xl lg:text-2xl text-white/65 max-w-2xl lg:max-w-3xl mx-auto mb-10 lg:mb-12 leading-relaxed"
         >
           {t('hero.subtitle')}
         </motion.p>
@@ -94,11 +94,11 @@ export default function HeroNew() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 lg:gap-5 justify-center items-center"
         >
           <button
             onClick={handleContactClick}
-            className="btn-glow text-base px-8 py-4 rounded-xl font-bold"
+            className="btn-glow text-base lg:text-lg px-8 lg:px-10 py-4 lg:py-5 rounded-xl font-bold"
           >
             {t('hero.cta')}
             <svg
@@ -110,7 +110,7 @@ export default function HeroNew() {
           </button>
           <Link
             href="/bundles"
-            className="btn-outline text-base px-8 py-4 rounded-xl font-semibold"
+            className="btn-outline text-base lg:text-lg px-8 lg:px-10 py-4 lg:py-5 rounded-xl font-semibold"
           >
             {t('nav.services')}
           </Link>

@@ -8,11 +8,11 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#050508] border-t border-white/5 py-12 px-4 sm:px-6">
+    <footer className="bg-[#050508] border-t border-white/5 py-12 lg:py-16 px-5 sm:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col items-center justify-center gap-6 text-center">
           {/* Logo + tagline */}
-          <div className="flex flex-col items-center md:items-start gap-2">
+          <div className="flex flex-col items-center gap-2">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#4A5FBF] to-[#3449a8] flex items-center justify-center shadow-md group-hover:shadow-[#4A5FBF]/30 transition-shadow">
                 <span className="text-white font-black text-xs tracking-tight">OK</span>
@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center justify-center gap-6">
             <Link href="/" className="text-white/40 hover:text-white/80 text-sm transition-colors">
               {t('nav.home')}
             </Link>
@@ -43,7 +43,7 @@ export default function Footer() {
           </nav>
 
           {/* Copyright */}
-          <p className="text-white/20 text-xs text-center md:text-start">
+          <p className="text-white/20 text-xs text-center">
             &copy; {year} OKAI. {t('footer.rights')}
           </p>
         </div>
