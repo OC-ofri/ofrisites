@@ -74,9 +74,9 @@ export default function HeroNew() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight mb-6 lg:mb-8 leading-[1.05]"
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] font-black tracking-tight mb-6 lg:mb-8 leading-[1]"
         >
-          <span className="gradient-text">{t('hero.headline')}</span>
+          <span className="gradient-text">OFRISITES</span>
         </motion.h1>
 
         {/* Subheadline */}
