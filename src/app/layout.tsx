@@ -1,45 +1,51 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Playfair_Display, DM_Sans, Space_Mono, Heebo, Frank_Ruhl_Libre } from "next/font/google";
 import "./globals.css";
-import { LanguageProvider } from "@/context/LanguageContext";
-import DirectionSwitcher from "@/components/DirectionSwitcher";
 
-const geist = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+  style: ["normal", "italic"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const heebo = Heebo({
+  variable: "--font-heebo",
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const frankRuhl = Frank_Ruhl_Libre({
+  variable: "--font-frank-ruhl",
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "OKAI | סוכנות דיגיטל",
-  description: "אתרים, אוטומציות ועוזרי AI לעסקים קטנים בישראל. Websites, automations, and AI assistants for Israeli small businesses.",
+  title: "OKAI — AI Automation Agency",
+  description: "We build websites, automations, and AI assistants that scale your business smarter and faster.",
   metadataBase: new URL("https://ofrisites.com"),
-  keywords: "עסקים קטנים, אתרים, אוטומציה, AI, ישראל, OKAI, small business, website, automation",
-  openGraph: {
-    title: "OKAI | סוכנות דיגיטל",
-    description: "אתרים, אוטומציות ועוזרי AI לעסקים קטנים בישראל",
-    locale: "he_IL",
-    type: "website",
-    url: "https://ofrisites.com",
-  },
-  other: {
-    "facebook-domain-verification": "6bx71av10potoaz9dyjf9gfxtuj8me",
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" suppressHydrationWarning className="bg-[#0a0a0a]">
-      <body className={`${geist.variable} antialiased bg-[#0a0a0a] text-white`}>
-        <LanguageProvider>
-          <DirectionSwitcher />
-          <div className="w-full max-w-[1920px] mx-auto overflow-hidden">
-            {children}
-          </div>
-        </LanguageProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${playfair.variable} ${dmSans.variable} ${spaceMono.variable} ${heebo.variable} ${frankRuhl.variable} antialiased`}
+      >
+        {children}
       </body>
     </html>
   );

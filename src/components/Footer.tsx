@@ -1,51 +1,45 @@
 'use client';
 
-import Link from 'next/link';
-import { useLanguage } from '@/context/LanguageContext';
+import { useLang } from '@/context/LangContext';
+
+const content = {
+  en: { links: ['Services', 'Portfolio', 'Pricing', 'Contact'], copy: 'All rights reserved.' },
+  he: { links: ['שירותים', 'עבודות', 'מחירים', 'צור קשר'], copy: 'כל הזכויות שמורות.' },
+};
+
+const hrefs = ['#services', '#portfolio', '#pricing', '#contact'];
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { lang } = useLang();
+  const t = content[lang];
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#050508] border-t border-white/5 py-12 lg:py-16 px-5 sm:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col items-center justify-center gap-6 text-center">
-          {/* Logo + tagline */}
-          <div className="flex flex-col items-center gap-2">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#4A5FBF] to-[#3449a8] flex items-center justify-center shadow-md group-hover:shadow-[#4A5FBF]/30 transition-shadow">
-                <span className="text-white font-black text-xs tracking-tight">OK</span>
-              </div>
-              <span className="font-bold text-white/90 group-hover:text-white transition-colors text-lg">
-                OKAI
-              </span>
-            </Link>
-            <p className="text-white/30 text-sm">{t('footer.tagline')}</p>
-          </div>
-
-          {/* Links */}
-          <nav className="flex items-center justify-center gap-6">
-            <Link href="/" className="text-white/40 hover:text-white/80 text-sm transition-colors">
-              {t('nav.home')}
-            </Link>
-            <Link href="/bundles" className="text-white/40 hover:text-white/80 text-sm transition-colors">
-              {t('nav.services')}
-            </Link>
-            <a
-              href="https://wa.me/972522424677"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/40 hover:text-white/80 text-sm transition-colors"
-            >
-              {t('nav.contact')}
-            </a>
-          </nav>
-
-          {/* Copyright */}
-          <p className="text-white/20 text-xs text-center">
-            &copy; {year} OKAI. {t('footer.rights')}
+    <footer className="py-8" style={{ background: 'var(--black)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <div className="max-w-[1600px] mx-auto px-8 lg:px-14">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fff' }}>
+            OK<span style={{ color: 'var(--blue)' }}>AI</span>
+          </span>
+          <p
+            className="text-center text-xs"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              background: 'linear-gradient(90deg, #92400e 0%, #b45309 30%, #d97706 55%, #b45309 80%, #92400e 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            © {year} OKAI Agency {t.copy}
           </p>
+          <div className="flex items-center gap-6">
+            {t.links.map((l, i) => (
+              <a key={l} href={hrefs[i]} className="text-xs transition-colors duration-200 hover:text-white/65" style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.28)' }}>
+                {l}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
