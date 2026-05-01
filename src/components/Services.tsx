@@ -75,7 +75,7 @@ export default function Services() {
   const t = content[lang];
 
   return (
-    <section id="services" className="py-28" style={{ background: 'var(--black-mid)' }}>
+    <section id="services" className="py-28">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-14">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

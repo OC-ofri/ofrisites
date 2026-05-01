@@ -154,3 +154,19 @@ select.form-input option {
 .animate-float-reverse { animation: floatReverse 9s ease-in-out infinite; }
 .animate-badge-pulse { animation: badgePulse 2.5s ease-in-out infinite; }
 .animate-scroll-line { animation: scrollLine 1.8s ease-in-out infinite; }
+
+/* Soft section seams — fades content edges so sections blend through the
+   continuous scroll background. Only ~3% top/bottom so readable copy at
+   section edges (CTAs, micro-text) stays legible. */
+section {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 3%, black 97%, transparent);
+          mask-image: linear-gradient(to bottom, transparent, black 3%, black 97%, transparent);
+}
+section:first-of-type {
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 97%, transparent);
+          mask-image: linear-gradient(to bottom, black 0%, black 97%, transparent);
+}
+section:last-of-type, footer {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 3%, black);
+          mask-image: linear-gradient(to bottom, transparent, black 3%, black);
+}

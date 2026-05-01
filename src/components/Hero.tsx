@@ -31,7 +31,7 @@ export default function Hero() {
   const t = content[lang];
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden" style={{ background: 'var(--black)' }}>
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Glows */}
       <div className="absolute pointer-events-none" style={{ width: '65vw', height: '65vh', top: '5%', left: '-10%', background: 'radial-gradient(ellipse, rgba(26,111,240,0.18) 0%, transparent 65%)', filter: 'blur(60px)' }} />
       <div className="absolute pointer-events-none" style={{ width: '40vw', height: '40vh', top: '40%', right: '0%', background: 'radial-gradient(ellipse, rgba(6,182,212,0.08) 0%, transparent 60%)', filter: 'blur(70px)' }} />

@@ -79,7 +79,7 @@ export default function Portfolio() {
   const grid = t.projects.filter((p) => !p.featured);
 
   return (
-    <section id="portfolio" className="py-28" style={{ background: 'var(--black)' }}>
+    <section id="portfolio" className="py-28">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-14">
         {/* Header */}
         <motion.div

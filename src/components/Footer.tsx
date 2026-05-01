@@ -15,7 +15,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-8" style={{ background: 'var(--black)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+    <footer className="py-8">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-14">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fff' }}>

@@ -92,7 +92,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-28" style={{ background: 'var(--black-mid)', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+    <section id="faq" className="py-28">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-14">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

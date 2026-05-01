@@ -78,7 +78,7 @@ export default function About() {
   const t = content[lang];
 
   return (
-    <section id="about" className="py-28" style={{ background: 'var(--black)', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+    <section id="about" className="py-28">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-14">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           {/* Left */}
